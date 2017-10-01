@@ -93,7 +93,7 @@ if (!Builder::hasMacro('removeSelect')) {
 
 if (!Builder::hasMacro('removeBinding')) {
     /**
-     * Add a binding to the query.
+     * Remove a binding from the query.
      *
      * @param  mixed   $value
      * @param  string  $type
@@ -112,13 +112,13 @@ if (!Builder::hasMacro('removeBinding')) {
     });
 }
 
-if (!Builder::hasMacro('getDistinct')) {
+if (!Builder::hasMacro('isDistinct')) {
     /**
-     * Force the query to only return distinct results.
+     * Determine if the builder is distinct.
      *
      * @return $this
      */
-    Builder::macro('getDistinct', function () {
+    Builder::macro('isDistinct', function () {
         return $this->distinct;
     });
 }
@@ -137,7 +137,7 @@ if (!Builder::hasMacro('getFrom')) {
 
 if (!Builder::hasMacro('removeJoin')) {
     /**
-     * Add a join clause to the query.
+     * Remove a join clause from the query.
      *
      * @param  string  $table
      * @param  string  $first
@@ -639,7 +639,7 @@ if (!Builder::hasMacro('removeWhereInSub')) {
 
 if (!Builder::hasMacro('removeWhereInExistingQuery')) {
     /**
-     * Add an external sub-select to the query.
+     * Remove an external sub-select from the query.
      *
      * @param  string   $column
      * @param  \Illuminate\Database\Query\Builder|static  $query
@@ -829,7 +829,7 @@ if (!Builder::hasMacro('removeWhereTime')) {
      * @param  string   $boolean
      * @return \Illuminate\Database\Query\Builder|static
      */
-    Builder::macro('removeWhreTime', function ($column, $operator, $value, $boolean = 'and') {
+    Builder::macro('removeWhereTime', function ($column, $operator, $value, $boolean = 'and') {
         return $this->removeDateBasedWhere('Time', $column, $operator, $value, $boolean);
     });
 }
@@ -1342,7 +1342,7 @@ if (!Builder::hasMacro('removeOrderByRaw')) {
 
 if (!Builder::hasMacro('getOffset')) {
     /**
-     * Set the "offset" value of the query.
+     * Get the "offset" value of the query.
      *
      * @param  int  $value
      * @return $this
@@ -1356,7 +1356,7 @@ if (!Builder::hasMacro('getOffset')) {
 
 if (!Builder::hasMacro('removeOffset')) {
     /**
-     * Set the "offset" value of the query.
+     * Remove the "offset" value from the query.
      *
      * @param  int  $value
      * @return $this
